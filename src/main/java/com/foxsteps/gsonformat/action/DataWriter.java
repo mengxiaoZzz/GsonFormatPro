@@ -15,6 +15,7 @@ import com.intellij.psi.JavaPsiFacade;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElementFactory;
 import com.intellij.psi.PsiFile;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,15 +48,13 @@ public class DataWriter extends WriteCommandAction.Simple {
         ProgressManager.getInstance().run(new Task.Backgroundable(project, "GsonFormat") {
 
             @Override
-            public void run(ProgressIndicator progressIndicator) {
+            public void run(@NotNull ProgressIndicator progressIndicator) {
                 progressIndicator.setIndeterminate(true);
                 long currentTimeMillis = System.currentTimeMillis();
                 execute();
                 progressIndicator.setIndeterminate(false);
                 progressIndicator.setFraction(1.0);
-                StringBuffer sb = new StringBuffer();
-                sb.append("GsonFormat [" + (System.currentTimeMillis() - currentTimeMillis) + " ms]\n");
-                Toast.make(project, MessageType.INFO, sb.toString());
+                Toast.make(project, MessageType.INFO, "GsonFormat [" + (System.currentTimeMillis() - currentTimeMillis) + " ms]\n");
             }
         });
     }
