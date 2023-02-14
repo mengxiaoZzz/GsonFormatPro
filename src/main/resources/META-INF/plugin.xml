@@ -68,7 +68,7 @@ which is base on GsonFormat and more flexible and convenient. Welcome to issue a
       ]]>
     </description>
     <vendor email="4626737@outlook.com">gyq</vendor>
-    <idea-version since-build="135.121"/>
+    <!--<idea-version since-build="223"/>-->
     <change-notes><![CDATA[
     <p>2.0.0</p>
     <ul>
